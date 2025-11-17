@@ -1,0 +1,73 @@
+{
+  "name": "folder-tree-generator",
+  "displayName": "Folder Tree Generator",
+  "description": "Generate a visual folder tree structure",
+  "version": "0.0.1",
+  "publisher": "khoa0410",
+  "author": {
+    "name": "Dae Micu"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Khoa0410/Folder-Tree-Generator"
+  },
+  "bugs": {
+    "url": "https://github.com/Khoa0410/Folder-Tree-Generator/issues"
+  },
+  "homepage": "https://github.com/Khoa0410/Folder-Tree-Generator#readme",
+  "keywords": [
+    "folder",
+    "tree",
+    "structure",
+    "gitignore",
+    "generator"
+  ],
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "folderTree.generate",
+        "title": "Generate Folder Tree"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "folderTree.generate",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.0",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  }
+}
